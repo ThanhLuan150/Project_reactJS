@@ -65,6 +65,7 @@
   color:#000000;
   font-size: 14px;
   gap: 10px;
+  text-decoration: none;
  }
   .colection{
     text-decoration: none;
@@ -119,4 +120,16 @@
     background:#45a049 ;
     border: 1px solid #45a049;
 
+  }
+  .button{
+    height: 40px;
+    width: 180px;
+    text-align: center;
+    border-radius: 10px;
+    border:1px solid #084408;
+    color:#084408;
+    font-size: 14px;
+    gap: 10px;
+    background: #fff;
+    text-decoration: none;
   }

@@ -1,6 +1,9 @@
 import React from 'react';
 
-const Cart = ({ cartItems, removeFromCart }) => {
+const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
+  const handleIncreaseQuantity = (itemId) => {
+    updateQuantity(itemId, 2); // Tăng số lượng lên 2
+  };
   return (
     <div className="cart">
       <h3>Giỏ hàng</h3>

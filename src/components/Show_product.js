@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import '../style/Show.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from './Cart';
+import axios from 'axios';
+
 const Show = () => {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -11,10 +13,9 @@ const Show = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://63a5721a318b23efa793a770.mockapi.io/api/produce');
-      const json = await response.json();
-      setData(json);
-      setSearchResults(json);
+      const response = await axios.get('https://63a5721a318b23efa793a770.mockapi.io/api/produce');
+      setData(response.data);
+      setSearchResults(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -38,6 +39,7 @@ const Show = () => {
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
     alert("Đã thêm vào giỏ hàng");
+    window.location = '/Cart'; 
   };
 
   const removeFromCart = (itemId) => {
@@ -47,11 +49,12 @@ const Show = () => {
 
   return (
     <div className="container">
-      <br></br>
-      <h3 className="colection">SẢN PHẨM NỔI BẬT</h3>    <br></br>
-      <input type="text" placeholder="Search..."value={searchTerm} onChange={handleSearch} className='input'/>
+      <br />
+      <h3 className="colection">SẢN PHẨM NỔI BẬT</h3>
+      <br />
+      <input type="text" placeholder="Vui lòng nhập từ khóa cần tìm" value={searchTerm} onChange={handleSearch} className='input' />
       <button className='button' onClick={handleSearchButton}>Tìm kiếm</button>
-      <br></br> <br></br>
+      <br /><br />
       <div className="row">
         {searchResults.map((e) => (
           <div className="col-md-3" key={e.id}>
@@ -65,7 +68,7 @@ const Show = () => {
                   <button className="button1" onClick={() => addToCart(e)}>
                     THÊM GIỎ HÀNG
                   </button>
-                  <Link to={`/products/${e.id}`} className="button1">DETAIL</Link>
+                  <Link className='button' to={`/product/${e.id}`}>Chi tiết</Link>
                 </div>
               </div>
             </div>
