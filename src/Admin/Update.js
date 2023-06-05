@@ -85,7 +85,7 @@ const Edit = () => {
                 <div className="form-group">
                   <label>Mô tả</label>
                   <input type="text" className="form-control" value={product.description} onChange={handleInputChange} name="description" />
-                </div>
+                </div><br></br>
                 <button type="submit" className="btn btn-primary">Update</button>
               </form>
             </div>

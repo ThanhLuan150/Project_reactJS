@@ -61,7 +61,7 @@ const Add = () => {
               <div className="form-group">
                 <label>Mô tả</label>
                 <input type="text" className="form-control" value={newProduct.description} onChange={handleInputChange} name="description" />
-              </div>
+              </div> <br></br>
               <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Add</button>
             </div>
           </div>
