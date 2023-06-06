@@ -65,7 +65,7 @@ const Show = () => {
                   <Link className="button1" to={`/shopping/${e.id}`}>
                     THÊM GIỎ HÀNG
                   </Link>
-                  <Link className='button' to={`/product/${e.id}`}>Chi tiết</Link>
+                  <Link className='button' to={`/product/${e.id}`} >Chi tiết</Link>
                   <button className='button'>Mua ngay</button>
                 </div>
               </div>

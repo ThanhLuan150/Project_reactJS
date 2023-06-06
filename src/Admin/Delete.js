@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import PageAdmin from './pageAdmin';
 
 const Delete = () => {
     const { id } = useParams();

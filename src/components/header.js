@@ -14,7 +14,7 @@ class Header extends React.Component {
               <Link to="/">TRANG CHỦ</Link>
             </li>
             <li>
-              <Link to="/shopping">GIỎ HÀNG</Link>
+              <Link to="/shopping/id">GIỎ HÀNG</Link>
             </li>
             <li>
               <Link to="/Admin">ADMIN</Link>

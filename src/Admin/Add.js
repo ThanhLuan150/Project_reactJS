@@ -7,7 +7,7 @@ const Add = () => {
   const [newProduct, setNewProduct] = useState({
     name: "",
     avatar: "",
-    quantity: "",
+    quatity: "",
     description: ""
   });
 
@@ -27,7 +27,7 @@ const Add = () => {
       setNewProduct({
         name: "",
         avatar: "",
-        quantity: "",
+        quatity: "",
         description: ""
       });
 
@@ -55,8 +55,8 @@ const Add = () => {
                 <input type="text" className="form-control" value={newProduct.avatar} onChange={handleInputChange} name="avatar" />
               </div>
               <div className="form-group">
-                <label>Gi á</label>
-                <input type="text" className="form-control" value={newProduct.quantity} onChange={handleInputChange} name="quantity" />
+                <label>Giá</label>
+                <input type="text" className="form-control" value={newProduct.quatity} onChange={handleInputChange} name="quatity" />
               </div>
               <div className="form-group">
                 <label>Mô tả</label>
