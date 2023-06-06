@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link} from 'react-router-dom';
 import '../style/Show.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cart from './Cart';
 import axios from 'axios';
 
 const Show = () => {
@@ -36,17 +35,15 @@ const Show = () => {
     setSearchResults(results);
   };
 
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-    alert("Đã thêm vào giỏ hàng");
-    window.location = '/Cart'; 
+  const addToCart = async (item) => {
+    try {
+      await axios.post(`https://63a5721a318b23efa793a770.mockapi.io/api/Type_Product`, item);
+      setCartItems([...cartItems, item]);
+      console.log("Thêm vào giỏ hàng thành công");
+    } catch (error) {
+      console.log("Lỗi khi thêm vào giỏ hàng:", error);
+    }
   };
-
-  const removeFromCart = (itemId) => {
-    const updatedCart = cartItems.filter((item) => item.id !== itemId);
-    setCartItems(updatedCart);
-  };
-
   return (
     <div className="container">
       <br />
@@ -65,17 +62,17 @@ const Show = () => {
                 <p className="card-text">{e.description}</p>
                 <p className="card_price"> {e.quatity}</p>
                 <div className="function">
-                  <button className="button1" onClick={() => addToCart(e)}>
+                  <Link className="button1" to={`/shopping/${e.id}`}>
                     THÊM GIỎ HÀNG
-                  </button>
+                  </Link>
                   <Link className='button' to={`/product/${e.id}`}>Chi tiết</Link>
+                  <button className='button'>Mua ngay</button>
                 </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
     </div>
   );
 };

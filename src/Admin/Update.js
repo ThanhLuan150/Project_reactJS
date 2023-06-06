@@ -47,7 +47,7 @@ const Edit = () => {
         description: '',
       });
 
-      alert('Product edited successfully!');
+      alert('Sản phẩm được cập nhật thành công!');
 
       setTimeout(() => {
         // Redirect to Admin page after editing
